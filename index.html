@@ -1,39 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ayodhyapets | Premium Pet Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
-    <style>
-        /* ==========================================================================
-           1. CORE VARIABLES & SETUP
-           ========================================================================= */
-        :root {
-            --brand-green: #90c53d; 
-            --brand-dark: #1a1a1a;
-            --bg-light: #f4f6f8;
-            --text-main: #111827;
-            --text-muted: #6b7280;
-            --border-color: #e5e7eb;
-            --white: #ffffff;
-            --orange-cta: #ff6b00;
-            --rzp-blue: #3395ff; 
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 20px -3px rgba(0, 0, 0, 0.08);
-            --success: #10b981;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Best Ayodhya Dog's & Pet Shop (Near By Ayodhya)</title>
+  
+  <!-- Google Search Ke Liye Sahi Keywords Aur Description -->
+  <meta name="description" content="Best Ayodhya Dog's & Pet Shop in Gonda, UP. Trusted Dog Services, Pet Boarding & Food. Call: 9452532737, WhatsApp: 8299269001." />
+  <meta name="keywords" content="Ayodhya Dog Kennel, Pet Shop Gonda, Ayodhya Pet Shop, Dog Boarding Gonda, Best Ayodhya Dog, 8299269001, 9452532737" />
+  <meta name="author" content="Best Ayodhya Dog's & Pet Shop" />
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--bg-light); color: var(--text-main); overflow-x: hidden; padding-bottom: 80px; }
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Inter","Segoe UI",sans-serif;
+      background:#f0f2f5;
+      color:#111;
+    }
+    .page{
+      max-width:420px;
+      margin:0 auto;
+      padding-bottom:30px;
+      background:#fff;
+      min-height:100vh;
+      box-shadow:0 0 20px rgba(0,0,0,0.05);
+    }
+    .hero{
+      background:#ff8c52;
+      color:#fff;
+      text-align:center;
+      padding:28px 16px;
+      border-bottom-left-radius:24px;
+      border-bottom-right-radius:24px;
+      animation:fadeInDown 1.2s ease;
+      box-shadow:0 4px 10px rgba(255,140,82,0.4);
+    }
+    @keyframes fadeInDown{
+      from{opacity:0;transform:translateY(-30px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .hero .paws{font-size:24px;margin-bottom:6px}
+    .hero h1{
+      font-size:18px;
+      font-weight:900;
+      line-height:1.2;
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:clip;
+      max-width:100%;
+      padding:0 5px;
+    }
+    .hero .udyam{font-size:13px;font-weight:700;opacity:.9;margin-top:5px}
+    .hero .trusted{font-size:16px;font-weight:600;margin-top:8px}
+    .hero .best{font-size:14px;font-weight:600;margin-top:4px;opacity:0.9;}
+    .card{
+      background:#fff;
+      margin:-24px 16px 16px;
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 18px 50px rgba(12,20,30,0.1);
+      animation:fadeInUp 1.3s ease;
+      border:1px solid #eee;
+    }
+    @keyframes fadeInUp{
+      from{opacity:0;transform:translateY(30px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .contact-title{
+      font-weight:800;
+      font-size:24px;
+      margin-bottom:15px;
+      color:#ff8c52;
+      text-align:center;
+    }
+    .contact-row{display:flex;gap:10px;align-items:center;margin:12px 0}
+    .contact-row a{color:#0b63c6;font-weight:700;text-decoration:none;font-size:17px;transition:color 0.3s;}
+    .contact-row a:active{color:#004ba0;}
+    .addr,.est{display:flex;gap:10px;margin:12px 0;line-height:1.5;font-size:15px;}
+    .maps-link{
+      color:#0b63c6;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:15px;
+      padding:8px 12px;
+      border:2px solid #0b63c6;
+      border-radius:8px;
+      transition:all 0.3s;
+    }
+    .maps-link:active{background:#e0f0ff;}
+    .images{margin-top:25px;display:flex;flex-direction:column;gap:18px}
+    .img-card{
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 12px 35px rgba(12,20,30,0.1);
+      border:1px solid #e0e0e0;
+      position:relative;
+      background:#f5f5f5;
+      transition:transform 0.4s ease;
+    }
+    .img-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      display:block;
+    }
+    footer{
+      background:#ff8c52;
+      color:#fff;
+      text-align:center;
+      margin:24px 16px 0;
+      font-weight:600;
+      font-size:14px;
+      padding:20px 16px 30px;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(12,20,30,0.15);
+      animation:fadeIn 2s ease;
+    }
+    .boarding-card{
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+      text-align:center;
+      margin-bottom:20px;
+      border:1px solid #ff8c52;
+      transition:all 0.3s ease;
+    }
+    .boarding-card:hover{box-shadow:0 8px 24px rgba(255,140,82,0.4);}
+    .boarding-card h3{
+      color:#ff8c52;
+      font-size:20px;
+      margin-bottom:15px;
+      font-weight:800;
+    }
+    .boarding-card .dog-circle{
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      object-fit:cover;
+      margin:0 auto 18px;
+      border:4px solid #ff8c52;
+      display:block;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    }
+    .boarding-card .book-btn{
+      background:#28a745;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:12px 18px;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-block;
+      text-decoration:none;
+      width:100%;
+      max-width:300px;
+      box-shadow:0 4px 10px rgba(40,167,69,0.4);
+      transition:background 0.3s,transform 0.2s;
+    }
+    .boarding-card .book-btn:active{
+      background:#1e7e34;
+      transform:translateY(1px);
+    }
+    .email-box{
+      margin-top:20px;
+      background:#fff;
+      border-radius:12px;
+      padding:15px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.15);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .email-box h3{
+      color:#ff8c52;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .email-box input,.email-box textarea{
+      width:100%;
+      margin:8px 0;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+      outline:none;
+      transition:0.3s;
+    }
+    .email-box input:focus,.email-box textarea:focus{
+      border-color:#ff8c52;
+      box-shadow:0 0 8px rgba(255,140,82,0.4);
+    }
+    .email-box button{
+      background:#ff8c52;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:12px 16px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      width:100%;
+      margin-top:10px;
+      transition:background 0.3s,transform 0.1s;
+    }
+    .email-box button:active{
+      background:#e6763c;
+      transform:scale(0.99);
+    }
+    .footer-link-box{margin-top:18px;}
+    .footer-link{
+      color:#fff;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:700;
+      display:block;
+      margin-bottom:14px;
+      transition:opacity 0.3s;
+    }
+    .footer-link:active{opacity:0.8;}
+    .footer-link-icon{font-size:22px;margin-right:8px;}
+    .copyright-text{margin-top:20px;font-size:13px;opacity:0.8;}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="paws">🐾🐾</div>
+      <h1>Best Ayodhya Dog's & Pet Shop</h1>
+      <div class="best">( Near By Ayodhya )</div>
+      <div class="udyam">UDYAM-UP31-0042633</div>
+      <div class="trusted">Trusted Dog Services in Gonda, UP</div>
+    </header>
 
-        .container { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; }
+    <main class="card">
+      <div class="contact-title">📞 Contact Information</div>
 
-        /* ==========================================================================
+      <div class="contact-row">
+        <div>📱 Call:</div>
+        <a href="tel:+919452532737">9452532737</a>
+      </div>
+
+      <div class="contact-row">
+        <div>💬 WhatsApp:</div>
+        <a href="https://wa.me/918299269001" target="_blank">8299269001</a>
+      </div>
+
+      <div class="addr">
+        📍 <span><strong>Address:</strong> Baijalpur, Post Kolhampur Bisen, Nawabganj, Gonda</span>
+      </div>
+
+      <div class="est">
+        🗓️ <span><strong>Established:</strong> 18 February 2014</span>
+      </div>
+
+      <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Ayodhya+Dogs+and+Pet+Shop" target="_blank">🗺️ View on Google Maps</a>
+
+      <div class="images">
+        <div class="img-card">
+          <img src="1043.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&h=250&w=400';" alt="Dog Image 1">
+        </div>
+        <div class="img-card">
+          <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&h=250&w=400" alt="Dog Image 2">
+        </div>
+        <div class="img-card">
+          <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&h=250&w=400" alt="Dog Image 3">
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="boarding-card">
+        <h3>🏠 Pet Boarding</h3>
+        <img
+          class="dog-circle"
+          src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="Cute Puppy for Boarding Services"
+        >
+        <a class="book-btn" href="https://ayodhyapets.netlify.app/" target="_blank">Book Now / Appointment</a>
+      </div>
+
+      <form class="email-box" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9ab9eff0-9fac-4bf9-b731-985c0417e753">
+        <h3>📧 Send Us a Message</h3>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="3" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="footer-link-box">
+        <a href="https://share.google/vgrKGSfJhjilXNadN" target="_blank" class="footer-link">
+          <span class="footer-link-icon">🏛️</span>
+          View Google Profile
+        </a>
+      </div>
+
+      <div class="footer-link-box">
+        <a href="https://www.facebook.com/share/16AP6M7yji/" target="_blank" class="footer-link">
+          <span class="footer-link-icon">📘</span>
+          Find Us on Facebook
+        </a>
+      </div>
+
+      <p class="copyright-text">© 2026 Best Ayodhya Dog's & Pet Shop — All Rights Reserved</p>
+    </footer>
+  </div>
+</body>
+</html>
            2. TOAST ALERTS
            ========================================================================= */
         .toast-container {

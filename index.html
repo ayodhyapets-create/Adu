@@ -8,7 +8,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:"Inter","Segoe UI",sans-serif;
-      background:#0f172a;
+      background:#070b14;
       color:#1e293b;
       -webkit-font-smoothing:antialiased;
       display:flex;
@@ -22,8 +22,8 @@
       background:#f8fafc;
       border-radius:28px;
       overflow:hidden;
-      box-shadow:0 25px 50px -12px rgba(0,0,0,0.35);
-      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 25px 60px -10px rgba(0,0,0,0.6), 0 0 25px rgba(249,115,22,0.15);
+      border:1px solid rgba(255,255,255,0.15);
       display:flex;
       flex-direction:column;
     }
@@ -31,29 +31,83 @@
       background:linear-gradient(135deg, #f97316 0%, #ea580c 100%);
       color:#fff;
       text-align:center;
-      padding:36px 20px 48px;
+      padding:24px 18px 36px;
       position:relative;
       border-bottom-left-radius:32px;
       border-bottom-right-radius:32px;
-      box-shadow:0 10px 25px rgba(234,88,12,0.3);
+      box-shadow:0 12px 30px rgba(234,88,12,0.35);
     }
-    .hero .paws{font-size:28px;margin-bottom:8px;letter-spacing:4px;}
+    
+    /* 3D Animated Poster Styles */
+    .banner-post{
+      width:100%;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+      border:2px solid rgba(255,255,255,0.4);
+      transform: perspective(1000px) rotateX(2deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .banner-post:hover {
+      transform: perspective(1000px) rotateX(0deg) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 15px rgba(255,255,255,0.5);
+    }
+    .banner-post img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* Enhanced Poster Details Box (Number & Address) */
+    .poster-details-box {
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      text-align: center;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { border-color: rgba(255,255,255,0.25); box-shadow: 0 0 5px rgba(249,115,22,0.2); }
+      100% { border-color: rgba(251,146,60,0.8); box-shadow: 0 0 15px rgba(251,146,60,0.5); }
+    }
+    .poster-phone-link {
+      color: #fff;
+      font-size: 19px;
+      font-weight: 900;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .poster-phone-link span { color: #fde047; }
+    .poster-address-text {
+      font-size: 12px;
+      color: #f1f5f9;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
     .hero h1{
-      font-size:20px;
+      font-size:18px;
       font-weight:900;
       line-height:1.3;
       margin-bottom:4px;
       letter-spacing:-0.3px;
     }
-    .hero .trusted{font-size:14px;font-weight:600;opacity:0.95;margin-top:6px}
-    .hero .best{font-size:12px;font-weight:500;opacity:0.85;background:rgba(255,255,255,0.2);display:inline-block;padding:3px 12px;border-radius:20px;margin-top:8px;}
+    .hero .trusted{font-size:13px;font-weight:600;opacity:0.95;margin-top:4px}
+    .hero .best{font-size:12px;font-weight:500;opacity:0.85;background:rgba(255,255,255,0.2);display:inline-block;padding:3px 12px;border-radius:20px;margin-top:6px;}
     
     .card{
       background:#ffffff;
-      margin:-28px 16px 16px;
+      margin:-24px 16px 16px;
       border-radius:20px;
       padding:24px 20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.06);
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
       border:1px solid #f1f5f9;
       position:relative;
       z-index:2;
@@ -78,9 +132,13 @@
       border-radius:12px;
       margin:10px 0;
       border:1px solid #e2e8f0;
-      transition:all 0.2s ease;
+      transition:all 0.3s ease;
     }
-    .contact-row:hover{border-color:#ea580c;}
+    .contact-row:hover{
+      border-color:#ea580c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(234,88,12,0.15);
+    }
     .contact-row span.label{font-weight:600;color:#64748b;font-size:14px;}
     .contact-row a{color:#0284c7;font-weight:700;text-decoration:none;font-size:15px;}
     
@@ -102,6 +160,11 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.05);
       border:1px solid #e2e8f0;
       background:#f1f5f9;
+      transition: transform 0.4s ease;
+    }
+    .img-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     .img-card img{
       width:100%;
@@ -110,7 +173,7 @@
       display:block;
       transition:transform 0.5s ease;
     }
-    .img-card:hover img{transform:scale(1.03);}
+    .img-card:hover img{transform:scale(1.05);}
 
     footer{
       background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
@@ -144,10 +207,15 @@
       margin:0 auto 14px;
       border:3px solid #fb923c;
       display:block;
-      box-shadow:0 4px 15px rgba(251,146,60,0.3);
+      box-shadow:0 0 20px rgba(251,146,60,0.5);
+      animation: floatDog 3s ease-in-out infinite;
+    }
+    @keyframes floatDog {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
     .boarding-card .book-btn{
-      background:#22c55e;
+      background:linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
       color:#fff;
       border:none;
       border-radius:12px;
@@ -158,10 +226,14 @@
       display:block;
       text-decoration:none;
       width:100%;
-      box-shadow:0 4px 15px rgba(34,197,94,0.3);
-      transition:all 0.2s ease;
+      box-shadow:0 4px 15px rgba(34,197,94,0.4);
+      transition:all 0.3s ease;
     }
-    .boarding-card .book-btn:active{transform:scale(0.98);background:#16a34a;}
+    .boarding-card .book-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(34,197,94,0.6);
+    }
+    .boarding-card .book-btn:active{transform:scale(0.98);}
 
     .email-box{
       background:rgba(255,255,255,0.05);
@@ -195,9 +267,10 @@
     .email-box input:focus, .email-box textarea:focus{
       border-color:#fb923c;
       background:rgba(255,255,255,0.12);
+      box-shadow: 0 0 10px rgba(249,115,22,0.3);
     }
     .email-box button{
-      background:#f97316;
+      background:linear-gradient(135deg, #f97316 0%, #ea580c 100%);
       color:#fff;
       border:none;
       border-radius:10px;
@@ -207,8 +280,12 @@
       cursor:pointer;
       width:100%;
       margin-top:10px;
-      box-shadow:0 4px 12px rgba(249,115,22,0.3);
-      transition:background 0.2s;
+      box-shadow:0 4px 15px rgba(249,115,22,0.4);
+      transition:all 0.3s;
+    }
+    .email-box button:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(249,115,22,0.6);
     }
     .email-box button:active{background:#ea580c;}
 
@@ -230,21 +307,49 @@
       padding:12px;
       border-radius:12px;
       border:1px solid rgba(255,255,255,0.1);
-      transition:all 0.2s;
+      transition:all 0.3s;
     }
-    .footer-link:hover{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.25);}
+    .footer-link:hover{
+      background:rgba(255,255,255,0.15);
+      border-color:rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
     .footer-link-icon{font-size:18px;margin-right:8px;}
     
-    .location-text{font-size:13px;font-weight:500;color:#94a3b8;margin-bottom:6px;}
-    .copyright-text{font-size:12px;color:#64748b;}
+    .footer-highlight-contact {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(234, 88, 12, 0.25) 100%);
+      border: 1px solid rgba(249, 115, 22, 0.5);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(249,115,22,0.2);
+    }
+    .footer-highlight-contact a {
+      color: #fb923c;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .location-text{font-size:13px;font-weight:600;color:#cbd5e1;margin-bottom:6px;}
+    .copyright-text{font-size:12px;color:#94a3b8;}
   </style>
 </head>
 <body>
   <div class="page">
     <header class="hero">
-      <div class="paws">🐾🐾🐾</div>
-      <h1>Ayodhya Dog Kennel & 
-             ( Pet Shop )</h1>
+      <!-- 3D Animated Poster Banner -->
+      <div class="banner-post">
+        <img src="https://i.ibb.co/HTP2xGfs/b0e514798ae650d0b1935093f40b824a6b25291eab9153a70f5eb8b78113d313.png" alt="Ayodhya Dog Kennel Banner">
+      </div>
+
+      <!-- Poster Number & Address Highlight Box -->
+      <div class="poster-details-box">
+        <a href="tel:+919044728323" class="poster-phone-link">📞 <span>9044728323</span></a>
+        <div class="poster-address-text">📍 Baijalpur, Nawabganj, Gonda, 271319, U.P</div>
+      </div>
+      
+      <h1>Ayodhya Dog Kennel & ( Pet Shop )</h1>
       <div class="best">(Near By Ayodhya)</div>
       <div class="trusted">Trusted Dog Services in Gonda, UP</div>
     </header>
@@ -263,7 +368,7 @@
       </div>
 
       <div class="addr">
-        📍 <strong>Address:</strong> Baijalpur, Nawabganj, Gonda,271319 ,U.P
+        📍 <strong>Address:</strong> Baijalpur, Nawabganj, Gonda, 271319, U.P
       </div>
 
       <div class="est">
@@ -314,9 +419,13 @@
         </a>
       </div>
       
-      <div class="location-text">Baijalpur Nawabganj Gonda 271319</div>
-      <p class="copyright-text">© 2026 Ayodhya Dog Kennel &
-        (Pet Shop) — All Rights Reserved</p>
+      <div class="footer-highlight-contact">
+        <div style="font-size: 13px; color: #cbd5e1; margin-bottom: 4px;">📞 Direct Helpline:</div>
+        <a href="tel:+919044728323">904472 8323</a>
+      </div>
+
+      <div class="location-text">📍 Baijalpur Nawabganj Gonda 271319</div>
+      <p class="copyright-text">© 2026 Ayodhya Dog Kennel & (Pet Shop) — All Rights Reserved</p>
     </footer>
   </div>
 </body>
